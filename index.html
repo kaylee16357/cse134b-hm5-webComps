@@ -25,7 +25,30 @@
     </form>
 </rating-widget>
 
-<script type="module" src="web-comps.js"></script>
+<script type="module">
+customElements.define('rating-widget', class extends HTMLElement) {
+
+  constructor () {
+    super();
+
+    this.innerHTML = 'hiiii';
+    this.stare = document.createElement('input');
+    this.appendChild(this.stars)
+    
+  }
+
+  updateStars(){
+    
+  }
+
+
+
+
+}
+
+
+  
+</script>
   
 </main>
 
