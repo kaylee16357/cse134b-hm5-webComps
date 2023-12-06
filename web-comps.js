@@ -4,6 +4,8 @@ no usages
   constructor () {
     super();
 
+    const wrapper = document.createElement('div');
+
     wrapper.innerHTML = '
       
       
