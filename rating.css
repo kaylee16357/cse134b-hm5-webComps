@@ -1,4 +1,7 @@
-input[type=number] {
-   
+input[type=number]:before {
+
+   content : ‘&#128222;’
+
+}
 
 }
