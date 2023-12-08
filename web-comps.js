@@ -58,7 +58,7 @@ class ratingWidget extends HTMLElement {
                 method: 'POST',
                 sentBy: 'JS',
                 headers: {
-                    'x-Sent-By': 'JS';
+                    'x-Sent-By': 'JS',
                 },
                 body: JSON.stringify({rating: rating})
               });
@@ -76,7 +76,7 @@ class ratingWidget extends HTMLElement {
                 method: 'POST',
                 sentBy: 'JS',
                 headers: {
-                    'x-Sent-By': 'JS';
+                    'x-Sent-By': 'JS',
                 },
                 body: JSON.stringify({rating: rating})
               });
