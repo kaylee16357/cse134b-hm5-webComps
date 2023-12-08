@@ -56,9 +56,9 @@ class ratingWidget extends HTMLElement {
             (async () => {
               const rawResponse = await fetch('https://httpbin.org/post', {
                 method: 'POST',
+                sentBy: 'JS',
                 headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json'
+                    'x-Sent-By': 'JS';
                 },
                 body: JSON.stringify({rating: rating})
               });
@@ -74,9 +74,9 @@ class ratingWidget extends HTMLElement {
             (async () => {
               const rawResponse = await fetch('https://httpbin.org/post', {
                 method: 'POST',
+                sentBy: 'JS',
                 headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json'
+                    'x-Sent-By': 'JS';
                 },
                 body: JSON.stringify({rating: rating})
               });
