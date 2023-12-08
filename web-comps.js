@@ -52,36 +52,47 @@ class ratingWidget extends HTMLElement {
         stars.addEventListener('click', () => {
           rating = `${idx+1}`;
           if(idx > 2){
-            allStars.textContent = `Thanks for the ${idx + 1} star rating!`;
+            allStars.textContent = `Thanks for the ${idx + 1} star rating!`; 
+            (async () => {
+              const rawResponse = await fetch('https://httpbin.org/post', {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({rating: rating})
+              });
+         const content = await rawResponse.json();
+
+         console.log(content);
+        })();
+    
+
           };
           if(idx < 3){
             allStars.textContent = `Thanks for your feedback of ${idx + 1} stars. We will             try and do better!`;
+            (async () => {
+              const rawResponse = await fetch('https://httpbin.org/post', {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({rating: rating})
+              });
+         const content = await rawResponse.json();
+
+         console.log(content);
+        })();
           };
         });
               
     });
       
-     async function postData(url = "", data = {}) {  
-  const response = await fetch(url, {
-    method: "POST",
-    SentBy: "JS",
-    headers: {
-      "Content-Type": "application/json",
-      "X-Sent-By": "JS",
-    },
-    body: JSON.stringify(data), 
-  });
-   const content = await response.json();
-  return response.json(); 
-}
-    
-
-postData("https://httpbin.org/post", {rating: rating}).then((data) => {
-  console.log(data); // JSON data parsed by `data.json()` call
-});
     
    }
 }
     
     
 customElements.define('rating-widget', ratingWidget);  
+    
