@@ -61,7 +61,24 @@ class ratingWidget extends HTMLElement {
               
     });
       
+     async function postData(url = "", data = {}) {  
+  const response = await fetch(url, {
+    method: "POST",
+    SentBy: "JS",
+    headers: {
+      "Content-Type": "application/json",
+      "X-Sent-By": "JS",
+    },
+    body: JSON.stringify(data), 
+  });
+   const content = await response.json();
+  return response.json(); 
+}
     
+
+postData("https://httpbin.org/post", {rating: rating}).then((data) => {
+  console.log(data); // JSON data parsed by `data.json()` call
+});
     
    }
 }
